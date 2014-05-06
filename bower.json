@@ -1,0 +1,20 @@
+{
+  "name": "website",
+  "version": "0.0.0",
+  "dependencies": {
+    "html5-boilerplate": "~4.3.0",
+    "respond": "~1.4.2"
+  },
+  "private": true,
+  "description": "generic website setup",
+  "main": "css/min/main.min.css",
+  "authors": [
+    "SH"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}

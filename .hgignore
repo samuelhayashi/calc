@@ -1,0 +1,11 @@
+syntax: glob
+
+# build directories and files
+.gitignore
+.gitattributes
+node_modules
+bower_components
+
+# Random OS stuff
+.DS_Store
+Thumbs.db
