@@ -1,7 +1,7 @@
 // Required packages
 var gulp = require('gulp');
 var minifycss = require('gulp-minify-css');
-var autoprefixer = require('gulp-autoprefixer');
+var prefix = require('gulp-autoprefixer');
 var compass = require('gulp-compass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -12,16 +12,17 @@ gulp.task('compass', function() {
     return gulp.src('scss/*.scss')
         .pipe(compass({
             config_file: './config.rb',
+            sourcemap: true,
             css: 'css',
             sass: 'scss'
         }))
+        .pipe(prefix('last 2 versions', '> 1%', 'ie 8', 'ie 7', 'Android 2', 'iOS 5', 'Opera 10', 'Safari 5', 'Firefox 3', { cascade: true }))
         .pipe(gulp.dest('css'));
 });
 
 // Autoprefix & Minify CSS
 gulp.task('css', function() {
     return gulp.src(['css/normalize.css', 'css/style.css'])
-        .pipe(autoprefixer('last 1 version'))
         .pipe(concat('main.css'))
         .pipe(rename({suffix: '.min'}))
         .pipe(minifycss())
